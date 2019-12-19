@@ -1,0 +1,67 @@
+{"viewer": {"first_name": "viewer",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": ""
+},
+
+"restricted_viewer_rb": {"first_name": "restricted viewer ray-ban",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "save_content", "explore"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": "",
+       "user_attributes": {"allowed_brands": "Ray-Ban", "table_name": "orders"}
+},
+
+"incorrect_table_viewer": {"first_name": "incorrect table viewer",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "save_content", "explore"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": "",
+       "user_attributes": {"table_name": "sfd", "allowed_brands": "Levi's"}
+},
+
+"explorer_creator": {"first_name": "explore creator",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore", "see_sql"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": "new_group"
+},
+
+"explorer_creator_2": {"first_name": "explore creator",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore", "see_sql"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": "new_group_2"
+},
+
+"explorer_creator_3": {"first_name": "explore creator",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore", "see_sql"],
+       "models": ["look_events_project"],
+       "group_ids": [15],
+       "external_group_id": "external_group_3"
+},
+
+"explorer": {"first_name": "explorer",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "explore"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": ""
+},
+
+"1": {"first_name": "em",
+       "last_name": "bed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": ""
+}
+
+}

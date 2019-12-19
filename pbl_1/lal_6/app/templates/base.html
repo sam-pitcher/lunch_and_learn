@@ -1,0 +1,20 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Lunch and Learn Application</title>
+      {% else %}
+      <title>Lunch and Learn Application</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>Menu: 
+          <a href="/index">Home</a>
+          <a href="/weather">Weather</a>
+          <a href="/nested_weather">Nested Weather</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
+
+

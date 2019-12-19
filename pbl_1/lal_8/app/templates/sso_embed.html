@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- 
+#################################
+#                               #
+#  HTML FOR THE SSO EMBED PAGE  #
+#                               #
+#################################
+   -->
+
+<!-- 
+this form allows flask_app.py to generate the iframe url using the selected user
+user_array is the array of users from the users json file, this has been parsed through from flask_app.py
+ -->
+
+  <form method="POST" action="/sso_embed">
+      <select name="user_id">
+        <!-- iterate through the users in user_array -->
+        {% for user in user_array %}
+        <!-- the value is what is being parsed back to the sso_embed function in flask_app.py
+        notice jinja is being used here, similar to liquid -->
+        <option value="{{ user }}">{{ user }}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="submit">
+  </form>
+
+
+<!-- SSO iframe -->
+
+  <div class="text-center">
+      <h2>SSO Embed Demo ({{ user_id }}):</h2>
+      <iframe id="looker" src={{url}} allowtransparency="true" height="720" width="920"></iframe>
+
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body>
+		<h1>Let's see how today will pan out!</h1>
+
+		<h2>Please select what the weather is like today: </h2>
+
+		<form method="POST" action="/nested_weather">
+	    <select name="weather_form">
+	    <!-- set the first option as Select weather type and parse a blank value -->
+	    	<option value="">Select weather type</option>
+        <!-- iterate through the weather types in weather_dictionary -->
+	    	{% for i in weather_dictionary %}
+        <!-- the value is what is being parsed back to the weather function in routes.py
+        notice jinja is being used here, similar to liquid -->
+	    	<option value="{{ i }}">{{ i }}</option>
+	      {% endfor %}
+	    </select>
+	    <input type="submit" value="submit">
+		</form>
+
+		{% if weather_type == "" %}
+		{% else %}
+			<h2> You have selected: {{ weather_type }}</h2>
+			<h3> So as today is {{ weather_type }}, {{ weather_dictionary[weather_type].day_outcome }}.</h3>
+			<h3> The question everyone is asking, is work closed? The answer is {{ weather_dictionary[weather_type].is_work_closed }}.</h3>
+			<h3> And there is a {{ weather_dictionary[weather_type].chance_of_moaning }}% chance of people moaning about this today.</h3>
+		{% endif %}
+
+	</body>
+{% endblock %}

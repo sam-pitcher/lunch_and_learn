@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body>
+		<h1>Welcome to the CSV View Page</h1>
+		<h2>Please upload your csv file below and click submit for the view file code</h2>
+		<code>{% for i in view_file_array %}
+	    	{{ i }}<br>
+	    {% endfor %}</code>
+	</body>
+{% endblock %}
+

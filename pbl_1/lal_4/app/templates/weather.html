@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body>
+		<h1>Let's see how today will pan out!</h1>
+
+		<h2> Let's just print the dictionary: </h2>
+		<p>{{ weather_dictionary }}</p>
+
+		<h2> First option, hard code: </h2>
+		<p>If it is sunny, then {{ weather_dictionary.sunny }}!</p>
+
+		<h2> Second option option, for loop: </h2>
+		{% for i in weather_dictionary %}
+		<p> If it is {{ i }}, then {{ weather_dictionary[i] }}!
+		{% endfor %}
+	</body>
+{% endblock %}
+

@@ -1,0 +1,3 @@
+{"snowy":{"day_outcome": "today will be fun", "is_work_closed": "yes", "chance_of_moaning": 31},
+"sunny":{"day_outcome": "today will be good", "is_work_closed": "no", "chance_of_moaning": 0},
+"rainy":{"day_outcome": "today may be slow", "is_work_closed": "no", "chance_of_moaning": 90}}
