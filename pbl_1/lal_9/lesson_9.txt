@@ -1,0 +1,7 @@
+Adding a run_dashboard button in html page to interact with iframe and run the dashboard
+
+- https://docs.looker.com/reference/embedding/embed-javascript-events#post_to_iframe
+
+- add run dashboard button
+
+- add javascript that listens to that button

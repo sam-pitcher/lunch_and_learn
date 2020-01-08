@@ -1,0 +1,15 @@
+Embedding Looker in Flask App
+
+- create users.json in the data folder
+
+- create creds.json file in .creds folder on laptop (NEVER SHARE THIS FILE)
+
+- make sure there is a dashboard on local instance
+
+- add pbl.py
+
+- add sso_embed to routes.py
+
+- add sso_embed.html to templates folder
+
+- this should now work!

@@ -79,7 +79,7 @@ user_array is the array of users from the users json file, this has been parsed 
 
 
     <script type="text/javascript">
-    // tell the scripy that it should always be reactive to forms and button presses on the page
+    // tell the script that it should always be reactive to forms and button presses on the page
     $(document).ready(function(){
 
     // set the variable iframe as the looker iframe
@@ -116,9 +116,10 @@ user_array is the array of users from the users json file, this has been parsed 
           // remove Male from the genders array:
           // remove (splice) the index of 1 item in the array
           genders.splice(index, 1);
+          // change the source of the male img to male-off.png
           $('#maleimg').attr('src', "static/male-off.png");
         }
-        // else it's not
+        // else Male is not in the array and therefore already not in the filter
         else {
           // add Male to the genders array
           genders.push("Male")

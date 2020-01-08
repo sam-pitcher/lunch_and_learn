@@ -1,0 +1,11 @@
+Adding filters in html page to interact with iframe
+
+- https://docs.looker.com/reference/embedding/embed-javascript-events#post_to_iframe
+
+- add static folder in app folder, this is where Flask looks for images
+
+- add year drop down and gender buttons
+
+- add var genders = ["Male", "Female"]; in js script section on html
+
+- add extra javascript

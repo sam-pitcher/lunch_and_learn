@@ -120,6 +120,12 @@ class URL:
 #               # access_filters={'look_events_project': {'allowed_brands': 'Ray-Ban'}}
 #               )
 
+##################################
+#                                #
+#  GENERATE USER FROM ROUTES.PY  #
+#                                #
+##################################
+
 def get_user(user_id='1', data={}):
   first_name=data[user_id]['first_name']
   last_name=data[user_id]['last_name']
@@ -161,6 +167,9 @@ def generate(user):
 
   # return("https://" + url.to_string() + "?embed_domain=http://localhost:9999")
   return("https://" + url.to_string())
+
+
+
 
 def generate_look(user):
   looker = Looker('localhost:9999', secret)

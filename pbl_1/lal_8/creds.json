@@ -1,0 +1,7 @@
+{
+	"lookerembed": {
+		"client_secret": "EMBED_SECRET",
+		"host": "localhost",
+		"port": "9999"
+	}
+}
