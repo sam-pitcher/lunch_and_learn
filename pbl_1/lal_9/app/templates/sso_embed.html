@@ -30,6 +30,7 @@ user_array is the array of users from the users json file, this has been parsed 
 <!-- run dashboard button -->
 
       <button id="run_dash" type="button" >RUN DASHBOARD</button>
+      <button id="mike" type="button" >mike</button>
 
 <!-- SSO iframe -->
 
@@ -64,7 +65,21 @@ user_array is the array of users from the users json file, this has been parsed 
              }),"https://localhost:9999");
            })
 
+        $('#mike').click(function() {
+      // print "I have run"
+        console.log('mike');
+        var my_request = JSON.stringify(
+  {
+    type: "dashboard:run"
+  }
+);
+        var my_iframe = document.getElementById("looker");
+
+my_iframe.contentWindow.postMessage(my_request, 'https://instance_name.looker.com');
+           })
+
   })
+
 
   </script>
 

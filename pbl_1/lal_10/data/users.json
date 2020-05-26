@@ -6,6 +6,23 @@
        "external_group_id": ""
 },
 
+"scheduler": {"first_name": "viewer",
+       "last_name": "embed",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "schedule_look_emails"],
+       "models": ["look_events_project"],
+       "group_ids": [4],
+       "user_attributes": {"company_id": "021342134", "allowed_brands": "Ray-Ban", "email":"sam.pitcher+1@looker.com"}
+},
+
+"edge": {"first_name": "edge_first",
+       "last_name": "edge_second",
+       "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "schedule_look_emails"],
+       "models": ["look_events_project"],
+       "group_ids": [],
+       "external_group_id": "",
+       "user_attributes": {"allowed_brands": "Ray-Ban", "email":"first.last@edgepetrol.com"}
+},
+
 "restricted_viewer_rb": {"first_name": "restricted viewer ray-ban",
        "last_name": "embed",
        "permissions": ["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "save_content", "explore"],

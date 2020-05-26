@@ -145,6 +145,8 @@ def get_user(user_id='1', data={}):
 
   return(user)
   
+  # def get_user(user_id, data):
+  #   return User(user_id, **data[user_id])
 
 #############################
 #                           #
