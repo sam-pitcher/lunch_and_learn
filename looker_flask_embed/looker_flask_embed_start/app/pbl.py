@@ -104,48 +104,30 @@ cred_file = os.path.join(os.path.expanduser('~'),'.creds','creds.json')
 with open(cred_file, 'r') as f:
   data = json.loads(f.read())
 
-pp_name = 'pp_embed'
-pp_secret = data['{}'.format(pp_name)]['embed_secret']
-
-local_name = 'pp_embed'
-local_secret = data['{}'.format(local_name)]['embed_secret']
+embed_name = 'lookerembed'
+embed_secret = data[f'{embed_name}']['embed_secret']
 
 ############################
 #  URL GENERATOR FUNCTION  #
 ############################
 
-def generate_local():
-  user = User(
-    '999',
-    first_name='Ruth',
-    last_name='Looker',
-    permissions=["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore"],
-    models=["the_look"]
-  )
-
-  looker = Looker('pitcherpakeman001.lookersandbox.com', local_secret)
-
-  fifteen_minutes = 15 * 60
-
-  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/14?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
-
-  return("https://" + url.to_string())
-
 def generate():
   user = User(
     '999',
-    first_name='Ruth',
+    first_name='Embed',
     last_name='Looker',
     permissions=["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore"],
     models=["the_look"],
     external_group_id="embed_group_test"
   )
 
-  looker = Looker('pitcherpakeman001.lookersandbox.com', pp_secret)
+  # UPDATE
+  looker = Looker('UPDATE_YOUR_URL', embed_secret)
 
   fifteen_minutes = 15 * 60
 
-  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/14?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
+  # UPDATE
+  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/UPDATE_DASHBOARD_ID?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
 
   return("https://" + url.to_string())
 
@@ -153,14 +135,15 @@ def generate():
 def generate_formatted():
   user = User(
     '999',
-    first_name='Ruth',
+    first_name='Embed',
     last_name='Looker',
     permissions=["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore"],
     models=["the_look"],
     external_group_id="embed_group_test"
   )
 
-  looker = Looker('pitcherpakeman001.lookersandbox.com', pp_secret)
+  # UPDATE
+  looker = Looker('UPDATE_YOUR_URL', embed_secret)
 
   fifteen_minutes = 15 * 60
 

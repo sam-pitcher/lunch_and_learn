@@ -17,8 +17,8 @@ def sso_embed():
     print(url)
     return render_template('sso_embed.html', url=url)
 
-@app_object.route('/sso_embed_formatted', methods=['GET', 'POST'])
-def sso_embed_formatted():
-    url = pbl.generate_formatted()
-    print(url)
-    return render_template('sso_embed_formatted.html', url=url)
+# @app_object.route('/sso_embed_formatted', methods=['GET', 'POST'])
+# def sso_embed_formatted():
+#     url = pbl.generate_formatted()
+#     print(url)
+#     return render_template('sso_embed_formatted.html', url=url)
