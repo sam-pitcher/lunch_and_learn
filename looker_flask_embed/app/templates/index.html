@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<body>
+		<br>
+		<h3 class="text-center">
+			Welcome to the Looker Embed Application<br>
+			<small class="text-muted">Check out the Private and SSO Embed pages.</small>
+		</h3>
+		<br><br>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm">
+					<h5 class="text-center">Private Embed</h5><br>
+					<p>
+					You can also embed Looks, Explores, and dashboards privately, so that a Looker login is required. If a user is not authenticated you have the option to show an error message, or to display a login screen.
+					<br><br>
+					Users who are logged in and accessing privately embedded content are subject to the settings in the Sessions admin panel that determine how long they can stay logged in, whether they can log in from multiple browsers, or whether they are logged out due to inactivity.
+					<br><br>
+					If you require a more advanced or customizable embedded solution check out our single sign-on embedding page.
+					<br><br>
+					<a href="https://docs.looker.com/sharing-and-publishing/embedding" target="_blank">
+						<button type="button" class="btn btn-secondary">Private Embed Docs</button>
+					</a>
+					</p>
+				</div>
+				<div class="col-sm">
+					<h5 class="text-center">SSO Embed</h5><br>
+					<p>
+					Single sign-on (SSO) embedding is a way to present private, embedded Looks, Explores, dashboards, or LookML dashboards to your users without requiring them to have a separate Looker login. Instead, users will be authenticated through your own application.
+					<br><br>
+					SSO embedding works by creating a special Looker URL that you will use in an iframe. The URL contains the information you want to share, the ID of the user in your system, and the permissions you want that user to have. You’ll then sign the URL with a secret key provided by Looker.
+					<br><br>
+					<a href="https://docs.looker.com/reference/embedding/sso-embed" target="_blank">
+						<button type="button" class="btn btn-secondary">SSO Embed Docs</button>
+					</a>
+					</p>
+				</div>
+				<div class="col-sm">
+					<h5 class="text-center">SSO Embed (Formatted)</h5><br>
+					<p>
+					The Themes page in the Platform section of the Admin menu lets you define themes for embedded dashboards. Themes are a way to customize the appearance of your embedded Looker dashboards. You can use themes to customize font family, text color, background color, and tile color.
+					<br><br>
+					<a href="https://docs.looker.com/admin-options/settings/themes" target="_blank">
+						<button type="button" class="btn btn-secondary">Custom Themes Docs</button>
+					</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+{% endblock %}

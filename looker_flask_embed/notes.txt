@@ -1,0 +1,12 @@
+create a folder in your local bsae directory and call it .creds
+```
+cd
+mkdir .creds
+```
+In that file create a json file called creds.json
+```
+{
+	"lookerembed": {
+		"embed_secret": "EMBED_SECRET"
+	}
+}
