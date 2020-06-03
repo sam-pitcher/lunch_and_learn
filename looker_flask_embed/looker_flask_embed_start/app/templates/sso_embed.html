@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HTML FOR THE SSO EMBED PAGE -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <!-- year dropdown selection -->  
+      <div class="form-group">
+          <select class="form-control" id="year">
+            <option value="">Any Year</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+          </select>
+        </div>
+      </div>
+
+    <div class="col-sm">
+      <!-- gender buttons -->  
+      <div id="gender_buttons">
+
+      <button id="male_button" type="button" class="btn btn-light">
+       <img id="maleimg" src="static/male-on.png" height="50" width="50" background_colour=#0000FF>
+      </button>
+    
+      <button id="female_button" type="button" class="btn btn-light">
+        <img id="femaleimg" src="static/female-on.png" height="50" width="50">
+      </button>
+    
+      <button id="clear_gender" type="button" class="btn btn-light">Clear Gender</button>
+    
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <!-- run dashboard button -->
+      <button id="run_dash" type="button" class="btn btn-info">RUN DASHBOARD</button>
+    </div>
+    
+  </div>
+</div>
+<br>
+
+<!-- SSO iframe -->
+
+  <div class="text-center">
+      <h2>SSO Embed Demo</h2>
+      <iframe id="looker" src={{url}} allowtransparency="true" height="900" width="920"></iframe>
+  </div>
+
+
+  <!-- JAVASCRIPT FOR INTERACTION WITH THE IFRAME -->
+
+    <script type="text/javascript">
+    // tell the script that it should always be reactive to forms and button presses on the page
+    $(document).ready(function(){
+
+    // set the variable iframe as the looker iframe
+    let iframe = document.getElementById('looker');
+
+    // create the array genders which is the filters to be applied to the iframe
+    var genders = ["Male", "Female"];
+
+    // year filter function
+    $('#year').change(function() {
+             let year = $("#year").val();
+              console.log(year)
+               iframe.contentWindow.postMessage(JSON.stringify({
+               type:"dashboard:filters:update",
+               filters:{
+                 Year: year
+               }
+             }),"https://pitcherpakeman001.lookersandbox.com");
+               iframe.contentWindow.postMessage(JSON.stringify({
+               type: "dashboard:run"
+             }),"https://pitcherpakeman001.lookersandbox.com");
+           })
+
+    // male button filter function
+    $('#male_button').click(function() {
+        // print the genders array
+        console.log(genders)
+        // find the index of 'Male' in the genders array
+        var index = genders.indexOf('Male');
+        // print the index
+        console.log(index);
+        // if the index is more than -1, the 'Male' is in the array
+        if (index > -1) {
+          // remove Male from the genders array:
+          // remove (splice) the index of 1 item in the array
+          genders.splice(index, 1);
+          // change the source of the male img to male-off.png
+          $('#maleimg').attr('src', "static/male-off.png");
+        }
+        // else Male is not in the array and therefore already not in the filter
+        else {
+          // add Male to the genders array
+          genders.push("Male")
+          // set the src attribute of maleimg to "static/male-on.png"
+          $('#maleimg').attr('src', "static/male-on.png");
+        }
+        // print the genders array
+        console.log(genders);
+        // print the array as a string
+        console.log(genders.join());
+        // set the variable genders_string as a string of the array
+        let genders_string = genders.join();
+        // print: 'I have clicked the male button'
+        console.log('I have clicked the male button');
+
+        iframe.contentWindow.postMessage(JSON.stringify({
+          // update the iframe filters
+          type:"dashboard:filters:update",
+          // set the filters as the genders_string variable
+          filters:{
+            Gender: genders_string
+                  }
+                    }),"https://pitcherpakeman001.lookersandbox.com");
+        // run the iframe
+        iframe.contentWindow.postMessage(JSON.stringify({
+          type: "dashboard:run"
+        }),"https://pitcherpakeman001.lookersandbox.com");
+
+        })
+
+    // female button filter function
+    $('#female_button').click(function() {
+      // same as male above
+        console.log(genders)
+        var index = genders.indexOf('Female');
+        console.log(index);
+        if (index > -1) {
+          genders.splice(index, 1);
+          $('#femaleimg').attr('src', "static/female-off.png");
+        }
+        else {
+          genders.push("Female")
+          $('#femaleimg').attr('src', "static/female-on.png");
+        }
+        console.log(genders);
+
+        console.log(genders.join())
+        let genders_string = genders.join()
+
+        console.log('I have clicked the female button')
+                iframe.contentWindow.postMessage(JSON.stringify({
+                type:"dashboard:filters:update",
+                filters:{
+                  Gender: genders_string
+                  }
+              }),"https://pitcherpakeman001.lookersandbox.com");
+
+                iframe.contentWindow.postMessage(JSON.stringify({
+                type: "dashboard:run"
+              }),"https://pitcherpakeman001.lookersandbox.com");
+           })
+
+    // clear gender filter function
+    $('#clear_gender').click(function() {
+        // create a varibale that is the index of 'Female' in genders
+        var f_index = genders.indexOf('Female');
+        // print the index
+        console.log(f_index);
+        // if 'Female' is in the array then do nothing
+        if (f_index > -1) {
+          // do nothing
+        }
+        else {
+          // add (push) 'Female' to the genders array
+          genders.push("Female")
+          // change the female icon to the coloured icon
+          $('#femaleimg').attr('src', "static/female-on.png");
+        }
+
+        // create a varibale that is the index of 'Male' in genders
+        var m_index = genders.indexOf('Male');
+        // print the index
+        console.log(m_index);
+        // if 'Male' is in the array then do nothing
+        if (m_index > -1) {
+          // do nothing
+        }
+        else {
+          // add (push) 'Male' to the genders array
+          genders.push("Male")
+          // change the male icon to the coloured icon
+          $('#maleimg').attr('src', "static/male-on.png");
+        }
+
+        // print 'I have cleared the gender buttons'
+        console.log('I have cleared the gender buttons')
+              // update the iframe gender filter to include "Male" and "Female"
+               iframe.contentWindow.postMessage(JSON.stringify({
+               type:"dashboard:filters:update",
+               filters:{
+                 Gender: ""
+               }
+             }),"https://pitcherpakeman001.lookersandbox.com");
+               // run the dashboard with the new filters applied
+               iframe.contentWindow.postMessage(JSON.stringify({
+               type: "dashboard:run"
+             }),"https://pitcherpakeman001.lookersandbox.com");
+           })
+
+    // run dashboard function
+    $('#run_dash').click(function() {
+      // print "I have run"
+        console.log('I have run');
+        // run the dashboard
+               iframe.contentWindow.postMessage(JSON.stringify({
+               type: "dashboard:run"
+             }),"https://pitcherpakeman001.lookersandbox.com");
+           })
+
+  })
+
+  </script>
+
+{% endblock %}
