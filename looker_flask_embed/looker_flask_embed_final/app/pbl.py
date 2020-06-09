@@ -125,7 +125,7 @@ def generate():
 
   fifteen_minutes = 15 * 60
 
-  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/14?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
+  url = URL(looker, user, fifteen_minutes, "/embed/dashboards-next/14?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
 
   return("https://" + url.to_string())
 
@@ -144,6 +144,6 @@ def generate_formatted():
 
   fifteen_minutes = 15 * 60
 
-  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/15?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
+  url = URL(looker, user, fifteen_minutes, "/embed/dashboards-next/15?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
 
   return("https://" + url.to_string())

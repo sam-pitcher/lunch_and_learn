@@ -47,11 +47,37 @@
 
 <!-- SSO iframe -->
 
+<div class="text-center">
+  <h2>SSO Embed Demo</h2>
+  <iframe id="looker" src={{url}} allowtransparency="true" height="900" width="920"></iframe>
+</div>
 
 
 
 <!-- JAVASCRIPT FOR INTERACTION WITH THE IFRAME -->
 
+<script type="text/javascript">
+  // tell the script that it should always be reactive to user actions
+  $(document).ready(function(){
+
+  // set the variable iframe as the looker iframe
+  let iframe = document.getElementById('looker');
+
+  // WE WILL ADD ALL OUR JAVASCRIPT HERE!!!
+
+     // run dashboard function
+     $('#run_dash').click(function() {
+      // print "I have run"
+        console.log('I have run');
+        // run the dashboard
+               iframe.contentWindow.postMessage(JSON.stringify({
+               type: "dashboard:run"
+        }),"https://pitcherpakeman001.lookersandbox.com");
+      })
+
+
+  })
+</script>
 
 
 {% endblock %}
