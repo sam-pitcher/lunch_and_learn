@@ -119,16 +119,16 @@ def generate():
     first_name='Embed',
     last_name='Looker',
     permissions=["see_lookml_dashboards", "access_data", "see_looks", "see_user_dashboards", "embed_browse_spaces", "save_content", "explore"],
-    models=["the_look"],
+    models=["UPDATE_MODEL"],
     external_group_id="embed_group_test"
   )
 
   # UPDATE
-  looker = Looker('pitcherpakeman001.lookersandbox.com', embed_secret)
+  looker = Looker('UPDATE_URL', embed_secret)
 
   fifteen_minutes = 15 * 60
 
   # UPDATE
-  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/15?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
+  url = URL(looker, user, fifteen_minutes, "/embed/dashboards/UPDATE_DASHBOARD_ID?embed_domain=http://127.0.0.1:5000", force_logout_login=True)
 
   return("https://" + url.to_string())
